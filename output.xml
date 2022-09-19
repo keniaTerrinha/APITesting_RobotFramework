@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.10 on win32)" generated="20220918 20:46:23.072" rpa="false" schemaversion="3">
+<suite id="s1" name="TestCasesAPI" source="c:\Users\kenia\source\repos\RobotFramework\APITesting_RobotFramework\TestCasesAPI.robot">
+<kw name="conectar a minha API" library="ResourceAPI" type="SETUP">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>fakeAPI</arg>
+<arg>${URL_API}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220918 20:46:23.224" level="INFO">Creating Session using : alias=fakeAPI, url=https://fakerestapi.azurewebsites.net/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220918 20:46:23.223" endtime="20220918 20:46:23.233"/>
+</kw>
+<status status="PASS" starttime="20220918 20:46:23.222" endtime="20220918 20:46:23.234"/>
+</kw>
+<test id="s1-t1" name="Buscar listagem de todos os livros (Get em todos os livros)" line="7">
+<kw name="Requisitar todos os livros" library="ResourceAPI">
+<kw name="Get Request" library="RequestsLibrary">
+<var>${RESPOSTA}</var>
+<arg>fakeAPI</arg>
+<arg>Books</arg>
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<msg timestamp="20220918 20:46:24.441" level="INFO">GET Request : url=https://fakerestapi.azurewebsites.net/api/Books 
+ path_url=/api/Books 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220918 20:46:24.442" level="INFO">GET Response : url=https://fakerestapi.azurewebsites.net/api/Books 
+ status=404, reason=Not Found 
+ body=None 
+ </msg>
+<msg timestamp="20220918 20:46:24.442" level="INFO">C:\Users\kenia\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'fakerestapi.azurewebsites.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220918 20:46:24.443" level="INFO">${RESPOSTA} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220918 20:46:23.236" endtime="20220918 20:46:24.443"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${RESPOSTA.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220918 20:46:24.444" level="INFO"/>
+<status status="PASS" starttime="20220918 20:46:24.443" endtime="20220918 20:46:24.444"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220918 20:46:24.445" level="INFO">${RESPOSTA} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220918 20:46:24.444" endtime="20220918 20:46:24.445"/>
+</kw>
+<status status="PASS" starttime="20220918 20:46:23.236" endtime="20220918 20:46:24.445"/>
+</kw>
+<status status="PASS" starttime="20220918 20:46:23.234" endtime="20220918 20:46:24.446"/>
+</test>
+<doc>Documentação da API: https://fakerestapi.azurewebsites.net/</doc>
+<status status="PASS" starttime="20220918 20:46:23.078" endtime="20220918 20:46:24.447"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCasesAPI">TestCasesAPI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
